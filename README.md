@@ -1,6 +1,6 @@
 # Assignment-2
 
-
+## 1. Specified Requirements
 ### **1.1: PHP Includes**
 
 - **Modularization**:
@@ -215,7 +215,8 @@
         ```
         
 
-
+---
+## 2. Web Structure
 ### **2.1: Folder Hierarchy**
 
 - **Root Directory**:
@@ -352,7 +353,8 @@
     - The ZIP file must retain the `project2/` folder structure.
     - All pages must run from `index.php` without manual file rearrangement.
 
-
+---
+## 3. Group Presentation
 ### **3.1: Introduction (Individual Contributions)**
 
 - **Roles & Responsibilities**:
@@ -481,7 +483,8 @@
     - Anticipate questions on validation logic or database design.
     - Assign topics to members (e.g., security, front-end).
 
-
+---
+## 4. Review & Feedback
 ### **4.1: Individual Task Requirements**
 
 - **Peer Evaluation**:
@@ -576,7 +579,8 @@
     > "Could participate more in weekly standups."
     
 
-
+---
+## 5. Group Submission
 ### **5.1: Group Submission**
 
 - **Compressed File**:
@@ -687,7 +691,8 @@
 3. **Confirm Canvas Submission**:
     - Check timestamp and Mercury link in submission comments.
 
-
+---
+## 6. Validation & Security
 ### **6.1: Server-Side Validation**
 
 - **Job Reference Number**:
@@ -875,7 +880,8 @@
     ```
     
 
-
+---
+## 7. Database Design
 ### **7.1: EOI Table Schema**
 
 - **Fields & Constraints**:
@@ -1072,7 +1078,8 @@
     - **Data Truncation**: Ensure input lengths match column definitions (e.g., 20-char limit for `FirstName`).
     - **SQL Syntax**: Test queries in phpMyAdmin before embedding in PHP.
 
-
+---
+## 8. Details for Enhancements
 ### **8.1: Sorting Functionality**
 
 - **UI Implementation**:
