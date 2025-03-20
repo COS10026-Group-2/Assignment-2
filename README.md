@@ -1,5 +1,14 @@
 # Assignment-2
 
+[[1. Specified Requirements]]
+[[2. Web Structure]]
+[[3. Group Presentation]]
+[[4. Review & Feedback]]
+[[5. Group Submission]]
+[[6. Validation & Security]]
+[[7. Database Design]]
+[[8. Details for Enhancements]]
+
 ## 1. Specified Requirements
 ### **1.1: PHP Includes**
 
