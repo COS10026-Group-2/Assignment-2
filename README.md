@@ -1,4 +1,5 @@
-# Table of content
+<details>
+  <summary>Table of content</summary>
 - [Assignment-2](#assignment-2)
   - [1. Specified Requirements](#1-specified-requirements)
     - [1.1: PHP Includes](#11-php-includes)
@@ -69,7 +70,7 @@
     - [8.5: CSV Export](#85-csv-export)
     - [8.6: Responsive Design](#86-responsive-design)
     - [8.7: Rate Limiting](#87-rate-limiting) 
-
+</details>
 
 
 ## 1. Specified Requirements
