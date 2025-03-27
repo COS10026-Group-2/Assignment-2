@@ -72,9 +72,19 @@
       - [8.6: Responsive Design](#86-responsive-design)
       - [8.7: Rate Limiting](#87-rate-limiting) 
 </details>
-
+<details>
+    <summary></summary>
+</details>
 
 ## 1. Specified Requirements
+
+<details>
+    <summary>Mindmap</summary>
+    
+    !(Specified Requirements)[1_Specified_Requirements.png]
+
+</details>
+
 ### **1.1: PHP Includes**
 
 - **Modularization**:
