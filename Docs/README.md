@@ -80,9 +80,7 @@
 
 <details>
     <summary>Mindmap</summary>
-    
-    !(Specified Requirements)[1_Specified_Requirements.png]
-
+<img src="1_Specified_Requirements.png" alt="Alt text">
 </details>
 
 ### **1.1: PHP Includes**
@@ -301,6 +299,10 @@
 
 ---
 ## 2. Web Structure
+<details>
+    <summary>Mindmap</summary>
+<img src="2_Web_Structure.png" alt="Alt text">
+</details>
 ### **2.1: Folder Hierarchy**
 
 - **Root Directory**:
@@ -439,6 +441,10 @@
 
 ---
 ## 3. Group Presentation
+<details>
+    <summary>Mindmap</summary>
+<img src="3_Group_Presentation.png" alt="Alt text">
+</details>
 ### **3.1: Introduction (Individual Contributions)**
 
 - **Roles & Responsibilities**:
@@ -569,6 +575,10 @@
 
 ---
 ## 4. Review & Feedback
+<details>
+    <summary>Mindmap</summary>
+<img src="4_Review_&_Feedback.png" alt="Alt text">
+</details>
 ### **4.1: Individual Task Requirements**
 
 - **Peer Evaluation**:
@@ -665,6 +675,10 @@
 
 ---
 ## 5. Group Submission
+<details>
+    <summary>Mindmap</summary>
+<img src="5_Group_Submission.png" alt="Alt text">
+</details>
 ### **5.1: Group Submission**
 
 - **Compressed File**:
@@ -777,6 +791,10 @@
 
 ---
 ## 6. Validation & Security
+<details>
+    <summary>Mindmap</summary>
+<img src="6_Validation_&_Security.png" alt="Alt text">
+</details>
 ### **6.1: Server-Side Validation**
 
 - **Job Reference Number**:
@@ -966,6 +984,10 @@
 
 ---
 ## 7. Database Design
+<details>
+    <summary>Mindmap</summary>
+<img src="7_Database_Design.png" alt="Alt text">
+</details>
 ### **7.1: EOI Table Schema**
 
 - **Fields & Constraints**:
@@ -1164,6 +1186,10 @@
 
 ---
 ## 8. Details for Enhancements
+<details>
+    <summary>Mindmap</summary>
+<img src="8_Details_for_Enhancements.png" alt="Alt text">
+</details>
 ### **8.1: Sorting Functionality**
 
 - **UI Implementation**:
