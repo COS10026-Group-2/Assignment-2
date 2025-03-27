@@ -79,7 +79,7 @@
     <summary>Mindmap</summary>
 <img src="1_Specified_Requirements.png" alt="Alt text">
 </details>
-
+ 
 ### **1.1: PHP Includes**
 
 - **Modularization**:
