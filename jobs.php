@@ -1,37 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="styles/style.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
-  <title>Job Portal</title>
-</head>
-<body>
-
-<header>
-  <nav class="navbar">
-    <div class="container">
-      <div class="navdiv">
-        <a href="index copy.html" class="nav-brand">Job Portal</a>
-        <div class="navbar-div">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="jobs.html">Jobs</a></li>
-            <li><a href="apply.html">Apply</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="enhancements.html">Enhancements</a></li>
-            <a href="" class="login">Login</a>
-            <button id="nav-button"><a href="TBA">Register</a></button>
-          </ul> 
-        </div>
-      </div>
-      <div class="pagename">
-        <h1>Jobs</h1>
-      </div>
-    </div>
-  </nav>
-</header>
+<?php
+  $pageTitle = "About Us";
+  include "header.inc";
+  include "menu.inc";
+?>
 
 <div class="recentjobs">
   <h1>Recent Jobs Available</h1>
@@ -137,14 +108,6 @@
         </ul>
       </div>
 
-      <div class="footer-newsletter">
-        <h3>Newsletter</h3>
-        <p>Don't miss out on valuable resources that can help you achieve your professional goals.</p>
-        <label for="newsletter-email" class="visually-hidden">Enter your email</label>
-        <input type="email" id="newsletter-email" placeholder="Enter your email...">
-        <button type="submit" class="subscribe">Subscribe now</button>
-      </div>
-    </div>
-  </section>
-</body>
-  </html>
+<?php
+  include "footer.inc";
+?>

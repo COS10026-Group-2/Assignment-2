@@ -1,38 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="styles/style.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
-  <title>Apply</title>
-</head>
-<body>
-
-<header>
-  <nav class="navbar">
-    <div class="container">
-      <div class="navdiv">
-        <a href="index.html" class="nav-brand">Job Portal</a>
-        <div class="navbar-div">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="jobs.html">Jobs</a></li>
-            <li><a href="apply.html">Apply</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="enhancements.html">Enhancements</a></li>
-            <a href="" class="login">Login</a>
-            <button id="nav-button"><a href="TBA">Register</a></button>
-          </ul> 
-        </div>
-      </div>
-      <div class="pagename">
-        <h1>Apply</h1>
-      </div>
-    </div>
-  </nav>
-</header>
-
+<?php
+  $pageTitle = "About Us";
+  include "header.inc";
+  include "menu.inc";
+?>
 
      <!--Start Form-->
 <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
@@ -164,45 +134,6 @@ loading="lazy"
 referrerpolicy="no-referrer-when-downgrade"
 ></iframe>
 
-                  <!--START Footer-->
-  <section class="footer">
-    <div class="container2">
-      <div class="footer-section">
-        <h3>Jobs</h3>
-        <p>Join us to explore exciting opportunities, enhance your skills, and take the next step towards a fulfilling professional journey.</p>
-      </div>
-
-      <div class="footer-section">
-        <h3>Company</h3>
-        <ul>
-          <li><a href="">About Us</a></li>
-          <li><a href="">Our Team</a></li>
-          <li><a href="">Partners</a></li>
-          <li><a href="">For Candidates</a></li>
-          <li><a href="">For Employers</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-section">
-        <h3>Job Categories</h3>
-        <ul>
-          <li><a href="">Telecommunications</a></li>
-          <li><a href="">Hotels & Tourism</a></li>
-          <li><a href="">Construction</a></li>
-          <li><a href="">Education</a></li>
-          <li><a href="">Financial Services</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-newsletter">
-        <h3>Newsletter</h3>
-        <p>Don't miss out on valuable resources that can help you achieve your professional goals.</p>
-        <label for="newsletter-email" class="visually-hidden">Enter your email</label>
-        <input type="email" id="newsletter-email" placeholder="Enter your email...">
-        <button type="submit" class="subscribe">Subscribe now</button>
-      </div>
-    </div>
-  </section>
-                <!---END Footer-->
-</body>
-</html>
+<?php
+  include "footer.inc";
+?>
