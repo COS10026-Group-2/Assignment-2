@@ -7,7 +7,7 @@
      <!--Start Form-->
 <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
     
-          <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+          <form method="post" action="process_eoi.php">
             <div class="form-container-job-apply">
               <div class="form-label">
                 <label for="jobRef">Job reference number</label>
