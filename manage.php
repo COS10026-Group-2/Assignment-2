@@ -78,28 +78,6 @@ switch ($action) {
 // Close the database connection
 mysqli_close($conn);
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage EOIs</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-    <header>
-        <h1>Manage EOIs</h1>
-    </header>
-    
-    <nav>
-        <!-- Navigation menu can be included here -->
-    </nav>
-    
-    <main>
-        <div class="container">
-            <h2>EOI Management</h2>
-            
             <?php if (!empty($message)): ?>
                 <div class="success-message">
                     <?php echo $message; ?>
@@ -111,54 +89,7 @@ mysqli_close($conn);
                     <?php echo $error; ?>
                 </div>
             <?php endif; ?>
-            
-            <form method="post" action="manage.php">
-                <div class="form-group">
-                    <label for="action">Action:</label>
-                    <select name="action" id="action" onchange="showFormFields()">
-                        <option value="">Select an action</option>
-                        <option value="list_all">List All EOIs</option>
-                        <option value="filter_by_jobref">Filter by Job Reference</option>
-                        <option value="search_by_name">Search by Name</option>
-                        <option value="delete_eois">Delete EOIs</option>
-                        <option value="update_status">Update Status</option>
-                    </select>
-                </div>
-                
-                <div id="jobref-form" style="display: none;">
-                    <div class="form-group">
-                        <label for="jobref">Job Reference:</label>
-                        <input type="text" name="jobref" id="jobref" required>
-                    </div>
-                </div>
-                
-                <div id="name-form" style="display: none;">
-                    <div class="form-group">
-                        <label for="name">Name (First or Last):</label>
-                        <input type="text" name="name" id="name" required>
-                    </div>
-                </div>
-                
-                <div id="status-form" style="display: none;">
-                    <div class="form-group">
-                        <label for="eoi_id">EOI ID:</label>
-                        <input type="number" name="eoi_id" id="eoi_id" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="status">Status:</label>
-                        <select name="status" id="status" required>
-                            <option value="New">New</option>
-                            <option value="Current">Current</option>
-                            <option value="Final">Final</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <button type="submit" class="btn">Submit</button>
-                </div>
-            </form>
-            
+        
             <?php if ($result && mysqli_num_rows($result) > 0): ?>
                 <h3>Results</h3>
                 <table class="eoi-table">

@@ -1,24 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>HR Search Form</title>
-
-<meta charset="utf-8" />
-<meta name="description" content="Car Search"  />
-<meta name="keywords" content="PHP, MySQL, Search" />
-<link rel="stylesheet" href="manage.css" type="text/css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage EOIs</title>
+    <link rel="stylesheet" href="styles/manage.css">
 </head>
 <body>
-	<h1>Lab10 Car Search</h1>
-	<form action="manage.php"method="post">
-    <fieldset><legend>Search Applicant</legend>
-      <p class="row">	
-        <label for="eoisearch">Car Make: </label>
-        <input type="text" name="carsearch" id="carsearch" required/>
-      </p>
-      <input type="submit" value="Search">
-    </fieldset>
-	</form>
+    <header>
+        <h1>Manage EOIs</h1>
+    </header>
+    
+    <nav>
+        <!-- Navigation menu can be included here -->
+    </nav>
+    
+    <main>
+        <div class="container">
+            <h2>EOI Management</h2>
+            <form method="post" action="manage.php">
+                <div class="form-group">
+                    <label for="action">Action:</label>
+                    <select name="action" id="action" onchange="showFormFields()">
+                        <option value="">Select an action</option>
+                        <option value="list_all">List All EOIs</option>
+                        <option value="filter_by_jobref">Filter by Job Reference</option>
+                        <option value="search_by_name">Search by Name</option>
+                        <option value="delete_eois">Delete EOIs</option>
+                        <option value="update_status">Update Status</option>
+                    </select>
+                </div>
+                
+                <div id="jobref-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="jobref">Job Reference:</label>
+                        <input type="text" name="jobref" id="jobref" required>
+                    </div>
+                </div>
+                
+                <div id="name-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="name">Name (First or Last):</label>
+                        <input type="text" name="name" id="name" required>
+                    </div>
+                </div>
+                
+                <div id="status-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="eoi_id">EOI ID:</label>
+                        <input type="number" name="eoi_id" id="eoi_id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <select name="status" id="status" required>
+                            <option value="New">New</option>
+                            <option value="Current">Current</option>
+                            <option value="Final">Final</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </form>
+        </div>
 </body>
 </html>
