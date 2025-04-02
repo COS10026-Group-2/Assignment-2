@@ -1,6 +1,6 @@
 <?php
   $host = 'localhost';
-  $name = 'root';
+  $user = 'root';
   $pwd = '';
   $sql_db = 'job_portal';
 ?>
