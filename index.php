@@ -1,5 +1,5 @@
 <?php
-  $pageTitle = "About Us";
+  $pageTitle = "Job Portal";
   include "header.inc";
   include "menu.inc";
 ?>
