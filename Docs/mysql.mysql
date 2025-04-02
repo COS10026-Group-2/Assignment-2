@@ -1,0 +1,52 @@
+I. job.php
+    1. Create Table
+  CREATE TABLE jobs (
+      JobID INT AUTO_INCREMENT PRIMARY KEY,
+      JobReference VARCHAR(5) NOT NULL UNIQUE,
+      Title VARCHAR(100) NOT NULL,
+      Description TEXT,
+      ClosingDate DATE,
+      SalaryRange VARCHAR(50),
+      ReportingTo VARCHAR(100),
+      Responsibilities TEXT, -- Storing list as text, perhaps newline-separated
+      EssentialReqs TEXT,    -- Storing list as text
+      PreferableReqs TEXT    -- Storing list as text
+  );
+
+  ---------------------
+    2. insert jobs
+    INSERT INTO jobs (JobReference, Title, Description, ClosingDate, SalaryRange, ReportingTo, Responsibilities, EssentialReqs, PreferableReqs) VALUES
+  (
+      'IT001',
+      'Junior Web Developer',
+      'Join our dynamic team to build and maintain exciting web applications using modern technologies.',
+      '2025-05-31',
+      '$60,000 - $75,000 AUD',
+      'Lead Web Developer',
+      'Develop front-end interfaces using HTML, CSS, JavaScript.\nBuild back-end logic using PHP and MySQL.\nCollaborate with designers and other developers.\nTest and debug applications.\nMaintain existing codebases.',
+      'Bachelor\'s degree in Computer Science or related field (or equivalent experience).\nProficiency in HTML, CSS, and JavaScript.\nBasic understanding of PHP and SQL.\nGood problem-solving skills.\nAbility to work in a team.',
+      'Experience with modern JavaScript frameworks (React, Vue, Angular).\nFamiliarity with version control (Git).\nUnderstanding of responsive design principles.\nExperience with CMS like WordPress.'
+  ),
+  (
+      'IT002',
+      'Cloud Support Engineer',
+      'Provide technical support and solutions for our cloud infrastructure clients.',
+      '2025-06-15',
+      '$70,000 - $90,000 AUD',
+      'IT Operations Manager',
+      'Respond to customer support requests via ticketing system, email, and phone.\nTroubleshoot issues related to cloud services (AWS, Azure, or GCP).\nMonitor system performance and alerts.\nAssist with cloud resource provisioning and configuration.\nDocument solutions and maintain knowledge base.',
+      'Experience in a technical support or sysadmin role.\nStrong understanding of networking concepts (TCP/IP, DNS, VPN).\nExperience with at least one major cloud platform (AWS, Azure, GCP).\nExcellent communication and customer service skills.\nScripting knowledge (Bash, Python, or PowerShell) is a plus.',
+      'Relevant cloud certifications (e.g., AWS Certified Cloud Practitioner, Azure Fundamentals).\nExperience with containerization (Docker, Kubernetes).\nFamiliarity with Infrastructure as Code (Terraform, CloudFormation).\nExperience with monitoring tools (e.g., Nagios, Datadog).'
+  );
+II. manager.php
+  1. create Table
+  CREATE TABLE managers (
+    manager_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL  -- Store hashed passwords ONLY
+    -- You could add other fields like name, email if needed
+    failed_login_attempts INT DEFAULT 0
+    last_attempt_time TIMESTAMP NULL DEFAULT NULL
+);
+
+III. eoi

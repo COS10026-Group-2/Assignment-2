@@ -1,3 +1,8 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <header>
   <nav class="navbar">
     <div class="container">
@@ -10,9 +15,29 @@
             <li><a href="apply.php">Apply</a></li>
             <li><a href="about.php">About Us</a></li>
             <li><a href="enhancements.php">Enhancements</a></li>
-            <a href="" class="login">Login</a>
-            <button id="nav-button"><a href="TBA">Register</a></button>
-          </ul> 
+
+            <?php
+            // Check if the user is logged in
+            if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
+                // --- User is Logged In ---
+                // Display welcome message and Logout link
+                echo "<li>"; 
+                if (isset($_SESSION['username'])) { // Display username if stored in session
+                   echo "Welcome, " . htmlspecialchars($_SESSION['username']) . "!";
+                }
+                echo "<a href='logout.php' class='login'>Logout</a>"; // Link to logout script
+                echo "</li>";
+
+            } else {
+                // --- User is Not Logged In ---
+                // Display Login link
+                echo "<li><a href='login.php' class='login'>Login</a></li>"; // Link to your login page
+            }
+            ?>
+
+            <li><button id="nav-button"><a href="TBA">Register</a></button></li>
+
+          </ul>
         </div>
       </div>
       <div class="pagename">

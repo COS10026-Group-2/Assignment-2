@@ -1,113 +1,115 @@
 <?php
-  $pageTitle = "About Us";
+  require_once "settings.php"; // Include database settings
+
+  $pageTitle = "Jobs";
   include "header.inc";
   include "menu.inc";
+
+// Function to safely display text and convert newlines to HTML list items
+function display_list($text) {
+    if (empty($text)) {
+        return '<p>N/A</p>'; // Changed to paragraph for consistency
+    }
+    // Trim input text first
+    $trimmed_text = trim($text);
+    if (empty($trimmed_text)) {
+        return '<p>N/A</p>';
+    }
+    // Escape the entire block once, then explode
+    $escaped_text = htmlspecialchars($trimmed_text);
+    $items = explode("\n", $escaped_text);
+
+    $output = '<ul>';
+    $item_count = 0;
+    foreach ($items as $item) {
+        $item = trim($item); // Trim each line
+        if (!empty($item)) {
+            $output .= '<li>' . $item . '</li>';
+            $item_count++;
+        }
+    }
+    $output .= '</ul>';
+    // Return N/A if list ended up empty after trimming lines
+    return ($item_count > 0) ? $output : '<p>N/A</p>';
+}
+
+// Database connection
+$dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+
+// Check connection
+if ($dbconn->connect_error) {
+    error_log("Database Connection Error: " . $conn->connect_error); // Log the error
+    die("Sorry, we're experiencing technical difficulties. Please try again later."); // User-friendly message
+}
+
+// Fetch job listings - Updated columns
+$sql = "SELECT JobID, JobReference, Title, Description, ClosingDate, SalaryRange, ReportingTo, Responsibilities, EssentialReqs, PreferableReqs
+        FROM jobs
+        ORDER BY ClosingDate ASC, Title ASC"; // Added secondary sort by Title
+$result = $dbconn->query($sql);
+
+// Check if query execution was successful
+if (!$result) {
+    error_log("Database Query Error: " . $conn->error); // Log the error
+    die("Sorry, could not retrieve job listings. Please try again later."); // User-friendly message
+}
+
 ?>
 
-<div class="recentjobs">
-  <h1>Recent Jobs Available</h1>
-</div>
 
-<div class="job-container">
-  <div class="job-name">
-    <h2>Software Developer</h2>
-    <p>Bauch, Schuppe and Schulist Co</p>
-  </div>
-  <div class="jobtags">
-    <p><i class="ri-briefcase-line"></i>Information Technology</p>
-    <p><i class="ri-time-line"></i>Full Time</p>
-    <p><i class="ri-bank-card-line"></i>$70000 - $90000</p>
-    <p><i class="ri-map-pin-line"></i>Hawthorn, VIC</p>
-  </div>
-  <button type="submit">Job Details</button>
-</div>
-
-<div class="job-description">
-  <h2>Job Description</h2>
-  <p>We are seeking a skilled Software Developer to join our dynamic team. The ideal candidate will be reponsible for designing, coding, and mordifying software applications from layout to function according to the company's specifications.</p>
-
-  <h2>Key Resposibilities</h2>
-  <p><i class="ri-check-line"></i>Develop and maintain software applications.</p>
-  <p><i class="ri-check-line"></i>Collaborate with cross-functional teams to define, design, and ship new features.</p>
-  <p><i class="ri-check-line"></i>Troubleshoot and debug applications.</p>
-  <p><i class="ri-check-line"></i>Ensure the performance, quality, and responsiveness of applications.</p>
-  <p><i class="ri-check-line"></i>Participate in code rreview and contribute to team knowledge sharing.</p>
-
-  <h2>Professional Skilss</h2>
-  <p><i class="ri-check-line"></i>Proficiency in programming languages such as Java, C++, or Python.</p>
-  <p><i class="ri-check-line"></i>Minimum 2 years of exprience in software development.</p>
-  <p><i class="ri-check-line"></i>Experience with web development frameworks (e.g.., Angular, React).</p>
-  <p><i class="ri-check-line"></i>Knowledge of database management systems (e.g.., MySQL, PostgreSQL).</p>
-  <p><i class="ri-check-line"></i>Familiarity with Aglie development methodologies.</p>
-</div>
+<body>
 
 
-<div class="job-container">
-  <div class="job-name">
-    <h2>AI Research Scientist</h2>
-    <p>Wisozk - Becker Co</p>
-  </div>
-  <div class="jobtags">
-    <p><i class="ri-briefcase-line"></i>Information Technology</p>
-    <p><i class="ri-time-line"></i>Full Time</p>
-    <p><i class="ri-bank-card-line"></i>$100000 - $130000</p>
-    <p><i class="ri-map-pin-line"></i>Hawthorn, VIC</p>
-  </div>
-  <button type="submit">Job Details</button>
-</div>
 
-<div class="job-description">
+<main> 
+    <div class="joblist">
+        <h1>Current Job Openings</h1>
+    </div>
 
-  <h2>Job Description</h2>
-  <p>We are seeking am innovative AI Research Scientists to join our cutting-edge research team. The sucessful candidate will be work on developing advance AI algorithms and models to solve complex problems and contribute to the future of AI technology.</p>
+    <?php
+    // Display data for each job
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<section class='job-listing' id='job_" . htmlspecialchars($row['JobID']) . "'>"; // Added section and unique ID
+            echo "<h3>" . htmlspecialchars($row['Title']) . "</h3>";
+            echo "<dl>"; // Using definition list for better structure
+            echo "<dt>Reference:</dt><dd>" . htmlspecialchars($row['JobReference']) . "</dd>";
+            echo "<dt>Closing Date:</dt><dd>" . (empty($row['ClosingDate']) ? 'N/A' : htmlspecialchars(date("d M Y", strtotime($row['ClosingDate'])))) . "</dd>"; // Format date
+            echo "<dt>Salary:</dt><dd>" . (empty($row['SalaryRange']) ? 'Not specified' : htmlspecialchars($row['SalaryRange'])) . "</dd>";
+            echo "<dt>Reports To:</dt><dd>" . (empty($row['ReportingTo']) ? 'N/A' : htmlspecialchars($row['ReportingTo'])) . "</dd>";
+            echo "</dl>";
 
-  <h2>Key Resposibilities</h2>
-  <p><i class="ri-check-line"></i>Conduct research on AI and machine learning algorithms.</p>
-  <p><i class="ri-check-line"></i>Develop and implement AI models and prototypes.</p>
-  <p><i class="ri-check-line"></i>Collaborate with other researchers and engineers to integrate AI solutions into products.</p>
-  <p><i class="ri-check-line"></i>Publish research findings in top-tier conferences and journals.</p>
-  <p><i class="ri-check-line"></i>Stay updated with the lastest advancements in AI and machine learning.</p>
+            echo "<h4>Description</h4>";
+            echo "<p>" . (empty($row['Description']) ? 'No description available.' : nl2br(htmlspecialchars($row['Description']))) . "</p>"; // nl2br converts newlines
 
-  <h2>Professional Skils</h2>
-  <p><i class="ri-check-line"></i>Ph.D in Computer Science, AI, Machine Learning, or related field.</p>
-  <p><i class="ri-check-line"></i>Proficiency in programming languages such as Python, R, or MATLAB.</p>
-  <p><i class="ri-check-line"></i>Experience withmachine learning frameworks (e.g., TensorFlow, PyTorch).</p>
-  <p><i class="ri-check-line"></i>Experience with nature language processing (NLP) and computer vision.</p>
-  <p><i class="ri-check-line"></i>Strong publication record in AI research.</p>
-  
-</div>
+            echo "<h4>Key Responsibilities</h4>";
+            echo display_list($row['Responsibilities']);
 
-<li><strong>Icons:</strong> RemixIcon library (https://remixicon.com/) for job tags and search icons.</li>
+            echo "<h4>Essential Requirements</h4>";
+            echo display_list($row['EssentialReqs']);
 
-  <section class="footer">
-    <div class="container2">
-      <div class="footer-section">
-        <h3>Job</h3>
-        <p>Join us to explore exciting opportunities, enhance your skills, and take the next step towards a fulfilling professional journey.</p>
-      </div>
+            echo "<h4>Preferable Requirements</h4>";
+            echo display_list($row['PreferableReqs']);
 
-      <div class="footer-section">
-        <h3>Company</h3>
-        <ul>
-          <li><a href="">About Us</a></li>
-          <li><a href="">Our Team</a></li>
-          <li><a href="">Partners</a></li>
-          <li><a href="">For Candidates</a></li>
-          <li><a href="">For Employers</a></li>
-        </ul>
-      </div>
+            // Add Apply button linking to apply.php (pass JobReference)
+            echo "<p><a href='apply.php?jobref=" . urlencode($row['JobReference']) . "' class='button'>Apply Now for " . htmlspecialchars($row['JobReference']) . "</a></p>"; // Made link text clearer
 
-      <div class="footer-section">
-        <h3>Job Categories</h3>
-        <ul>
-          <li><a href="">Telecommunications</a></li>
-          <li><a href="">Hotels & Tourism</a></li>
-          <li><a href="">Construction</a></li>
-          <li><a href="">Education</a></li>
-          <li><a href="">Financial Services</a></li>
-        </ul>
-      </div>
+            echo "</section>"; // End job-listing section
+        }
+        // Free result set
+        $result->free();
+    } else {
+        echo "<p>No current job openings found.</p>";
+    }
+    ?>
+</main>
 
 <?php
-  include "footer.inc";
+// Close the database connection
+$dbconn->close();
 ?>
+
+<?php include 'footer.inc'; // Assuming footer outputs closing body tags if needed ?>
+
+</body>
+</html>
