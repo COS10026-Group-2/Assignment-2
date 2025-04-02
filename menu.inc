@@ -35,7 +35,7 @@ if (session_status() == PHP_SESSION_NONE) {
             }
             ?>
 
-            <li><button id="nav-button"><a href="TBA">Register</a></button></li>
+            <li><button id="nav-button"><a href="register_manager.php">Register</a></button></li>
 
           </ul>
         </div>
