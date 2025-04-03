@@ -29,20 +29,42 @@
                             font-weight: bold;
                         }
                         
-                        .navbar-div li{
+                        .navbar-div ul {
                             list-style: none;
-                            display: inline-block;
-                            align-items: start;
-                            justify-content: center;
+                            padding: 0;
+                            margin: 0;
+                            display: flex; /* Use Flexbox */
+                            align-items: center; /* Vertically align items in the middle */
+                            gap: 25px; /* Control spacing between ALL items (Adjust as needed) */
                         }
                         
-                        .navbar-div li a{
+                        .navbar-div li {
+                            /* display: inline-block; is no longer needed */
+                        }
+                        
+                        .navbar-div li a {
                             color: white;
                             font-size: 18px;
-                            margin-right: 60px;
                             cursor: pointer;
-                            
+                            /* margin-right: 60px; is no longer needed, use gap on ul */
+                            display: inline-block; /* Ensure links behave predictably */
                         }
+                        
+                        .navbar-div li button {
+                            /* Keep your existing button styles for color, padding, etc. */
+                            /* Margins are less critical now gap is used, but can fine-tune */
+                            margin: 0; /* Remove default margins if needed */
+                        }
+                        
+                        .navbar-div li button a {
+                            /* Ensure link inside button looks okay */
+                             text-decoration: none; /* Redundant? Ensure no underline */
+                             color: inherit; /* Inherit button color */
+                             font-size: inherit; /* Inherit button font-size */
+                             display: block; /* Make link fill the button padding area */
+                             padding: 0; /* Remove padding if button handles it */
+                        }
+                        
                         
                         .navbar-div li a:hover{
                             color: rgb(41, 180, 255);
@@ -108,16 +130,23 @@
                             margin-top: 0px;
                         }
                         
-                        .container2{
+                        .container2 {
                             margin: auto;
                             margin-top: 50px;
                             margin-bottom: 80px;
                             display: flex;
                             justify-content: space-between;
                             flex-wrap: wrap;
-                            gap: 150px;
+                            gap: 50px; /* Consider reducing gap if adding padding makes it too wide */
                             color: white;
+                            max-width: 1400px; /* Optional: constrain max width */
+                            width: 90%;       /* Optional: use percentage width */
+                        
+                            /* --- Add padding --- */
+                            padding: 20px 30px; /* Add 20px top/bottom, 30px left/right padding (Adjust values as needed) */
+                            box-sizing: border-box; /* Ensures padding is included within the width/height */
                         }
+
                         .footer-section h3{
                             font-size: 25px;
                             margin-bottom: 15px;
@@ -200,119 +229,225 @@
                             text-align: center;
                         }
                         
-                                                /* START Definition List Styling */
-                        .team-info dl {
-                            display: flex;
-                            flex-wrap: wrap;
-                            max-width: 800px;
-                            margin: 0 0 2rem 0;
-                          }
-                          
-                        .team-info dt {
-                            width: 200px;
-                            padding: 0.5rem;
-                            font-weight: bold;
-                            border-bottom: 1px solid #eee;
-                          }
-                        
-                        .team-info dd {
-                            width: calc(100% - 200px);
-                            padding: 0.5rem;
-                            margin-left: 0;
-                            border-bottom: 1px solid #eee;
-                          }
-                                                /* END Definition List Styling */
-                          
-                                                /* START Figure and Image Styling */
-                        .team-info figure {
-                                max-width: 300px;
-                                float: right;
-                        }
-                          
-                          .team-info img {
-                            width: 100%;
-                            height: auto;
-                            border: 3px solid #333;
-                          }
-                          
-                          .team-info figcaption {
-                            text-align: center;
-                            padding: 0.5rem;
-                            font-style: italic;
-                          }
-                        
-                          .team-info::after {
-                            content: "";
-                            display: table;
-                            clear: both;
-                        }
-                                                /* END Figure and Image Styling */
-                                                
-                                                /* START Table Styling */
-                        .timetable {
-                            margin: 2rem 0;
-                            clear: both;
-                          }
-                          
-                          .timetable table {
-                            width: 100%;
-                            max-width: 1000px;
-                            margin: 0 auto;
-                            border-collapse: collapse;
-                          }
-                        
-                          .timetable th {
-                            background-color: #333;
-                            color: #fff;
-                            padding: 0.75rem;
-                            font-weight: bold;
-                          }
-                          
-                          .timetable td {
-                            padding: 0.75rem;
-                            border: 1px solid #ddd;
-                            background-color: #f9f9f9;
-                          }
-                          
-                          .timetable tr:nth-child(even) td {
-                            background-color: #f0f0f0;
-                          }
-                                                /* End Table Styling */
-                        
-                                                /* START Additional Info Section */
-                        .additional-info {
-                            clear: both;
-                            margin: 2rem 0;
-                          }
-                          
-                          .additional-info ul {
-                            list-style-type: disc;
-                            margin-left: 2rem;
-                            margin-bottom: 1.5rem;
-                          }
-                          
-                          .additional-info li {
-                            margin: 0.5rem 0;
-                          }
-                                                /* END Additional Info Section */
-                        
-                                                /* START Contact Section */
-                          .contact {
-                            margin: 2rem 0;
-                            padding: 1rem;
-                            background-color: #f5f5f5;
-                            border-radius: 4px;
-                          }
-                          
-                          .contact a {
-                            color: #0066cc;
-                            text-decoration: none;
-                          }
-                          
-                          .contact a:hover {
-                            text-decoration: underline;
-                          }
-                                                /* END Contact Section */
+/* ========================================= */
+/* Improved Styles for about.php            */
+/* ========================================= */
+
+/* --- General Page Layout --- */
+main {
+    padding: 30px 5%; /* Add padding around main content */
+    max-width: 1200px; /* Optional: Limit max width */
+    margin: 20px auto; /* Center main content */
+}
+
+/* Add some spacing below headings */
+main h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #eee; /* Subtle separator */
+    padding-bottom: 0.5rem;
+    color: #333;
+}
+main h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+
+/* --- Team Info Section --- */
+.team-info {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px solid #e9ecef;
+    /* Add Flexbox properties */
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    justify-content: space-between; /* Distribute space */
+    align-items: flex-start; /* Align items to the top */
+    gap: 30px; /* Space between the list and the figure */
+}
+
+/* Definition List Styling */
+.team-info dl {
+    flex: 2; /* Allow dl to take more space */
+    min-width: 300px; /* Prevent it from getting too narrow */
+    margin: 0; /* Reset margin */
+    line-height: 1.6;
+}
+
+.team-info dt {
+     width: 100%; /* Let dt take full width in its column */
+     box-sizing: border-box;
+     float: none; /* Ensure float is off */
+     clear: none; /* Ensure clear is off */
+}
+
+.team-info dd {
+    width: calc(100% - 180px); /* Adjust width based on dt width */
+    padding: 0.75rem 1rem; /* Increased padding */
+    margin-left: 180px; /* Match dt width - Only if dt is floated */
+    /* margin-left: 0; --- Use this if dl is display: flex and dd follows dt */
+    border-bottom: 1px solid #dee2e6;
+    border-top: 1px solid #dee2e6;
+    margin-bottom: 0; /* Remove default dd margin */
+    min-height: 50px; /* Ensure min height for alignment */
+    display: flex; /* Optional: For vertical alignment */
+    align-items: center; /* Optional: For vertical alignment */
+}
+
+/* Style alternating rows */
+.team-info dt:nth-of-type(odd),
+.team-info dd:nth-of-type(odd) {
+     /* Keep odd rows slightly different */
+     background-color: #f8f9fa; /* Adjust if main bg is the same */
+}
+.team-info dt:nth-of-type(even),
+.team-info dd:nth-of-type(even) {
+     background-color: #fff; /* Slightly different even rows */
+}
+
+
+/* Team Figure/Image Styling */
+.team-info figure {
+    max-width: 280px; /* Adjust size */
+    float: right;
+    margin-left: 30px; /* Space between dl and figure */
+    margin-top: 10px;
+     margin-bottom: 10px;
+}
+
+.team-info img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #dee2e6; /* Subtle border */
+    border-radius: 5px; /* Slightly rounded */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.team-info figcaption {
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    font-style: italic;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* --- Timetable Section --- */
+.timetable {
+    margin: 2rem 0;
+    clear: both;
+}
+
+/* Optional: Make table scroll on small screens */
+.timetable-wrapper {
+    overflow-x: auto;
+    margin-bottom: 1rem; /* Space below wrapper */
+}
+
+.timetable table {
+    width: 100%;
+    /* max-width: 1000px; */ /* Max width handled by main */
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid #dee2e6; /* Add outer border */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.timetable th {
+    background-color: #343a40; /* Darker header */
+    color: #fff;
+    padding: 0.9rem 0.75rem; /* More padding */
+    font-weight: bold;
+    text-align: left; /* Align text left */
+}
+
+.timetable td {
+    padding: 0.9rem 0.75rem; /* Match th padding */
+    border: 1px solid #e9ecef; /* Lighter internal borders */
+    background-color: #fff; /* White background */
+    vertical-align: top; /* Align cell content top */
+}
+
+.timetable tbody tr:nth-child(even) td {
+    background-color: #f8f9fa; /* Subtle striping */
+}
+.timetable tbody tr:hover td {
+    background-color: #e9ecef; /* Hover effect */
+}
+
+/* --- Additional Info & Contact Sections --- */
+.additional-info,
+.contact {
+    margin: 2.5rem 0;
+    padding: 20px;
+    background-color: #f8f9fa; /* Similar background to team info */
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.additional-info ul {
+    list-style-type: disc;
+    margin-left: 1.5rem; /* Adjust indent */
+    margin-bottom: 1rem; /* Space below list */
+    padding-left: 1rem; /* Add padding */
+}
+
+.additional-info li {
+    margin-bottom: 0.75rem; /* More space between items */
+    line-height: 1.6;
+}
+
+.contact p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.contact a {
+    color: #007bff; /* Standard link color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    main {
+        padding: 20px 3%;
+    }
+
+    .team-info dt,
+    .team-info dd {
+        width: 100%;
+        float: none;
+        text-align: left;
+        background-color: transparent; /* Reset background for stacking */
+        border-top: none; /* Avoid double borders */
+    }
+     .team-info dt {
+         background-color: #e9ecef;
+         border-top: 1px solid #dee2e6; /* Add top border back */
+         font-weight: bold;
+         margin-top: 10px; /* Space before stacked term */
+     }
+     .team-info dd {
+         border-bottom: 1px solid #dee2e6;
+         min-height: auto;
+         padding: 0.5rem 0.75rem;
+     }
+     .team-info dt:first-of-type {
+         margin-top: 0; /* No top margin for first item */
+     }
+
+
+    /* Timetable will scroll horizontally due to .timetable-wrapper */
+}
                         
                         
                         
@@ -331,71 +466,9 @@
                             display: flex;
                             justify-content: space-between;
                         }
-                        
-                        
-                        
-                        .search-container{
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            width: 100%;
-                            background-color: rgb(102, 131, 102);
-                            background-image: url(images/bgimage.jpg);
-                            background-repeat: no-repeat;
-                            background-size: cover;
-                            background-position: center;
-                            min-height: 500px;
-                            padding: 20px;
-                            box-sizing: border-box;
-                            color: white;
-                        }
-                        
-                        .search-wrapper {
-                            display: flex;
-                            width: 100%;
-                            max-width: 600px;
-                            margin-top: 20px;
-                        }
-                        
-                        .search-input{
-                            flex: 1;
-                            padding: 10px 15px;
-                            border: 1px solid #ccc;
-                            border-radius: 5px 0 0 5px; 
-                            font-size: 16px;
-                            outline: none;
-                            transition: border-color 0.3s;
-                        }
-                        
-                        .search-input:focus{
-                            border-color: #4285f4;
-                        }
-                        
-                        .search-button{
-                            padding: 10px 20px;
-                            background: #237A6B;
-                            color: white;
-                            border: none;
-                            border-radius: 0 5px 5px 0;
-                            cursor: pointer;
-                            font-size: 16px;
-                            transition: background 0.3s;
-                        }
-                        
-                        .search-button:hover{
-                            background: #1a5d52;
-                        }
                              /*END Navigation Bar + Search Bar*/
                         
                                                  /*START Description 1*/
-                        .company-section{
-                            background-color: white;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            margin-top: 50px;
-                            gap: 200px;
-                        }
                         
                         .img-container img{
                             width: 800px;
@@ -426,15 +499,7 @@
                                                 /*END Description 1*/
                         
                                                 /*START Description 2*/
-                        .company-section-2{
-                            background-color: rgb(87, 90, 122);
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            margin-top: 50px;
-                            gap: 200px;
-                            flex-direction: row-reverse;
-                        }
+
                         
                         .text-container2{
                             color: white;
@@ -473,130 +538,217 @@
                             margin: auto;
                         }
                         
-                        .form-container-job-apply {
-                            display: flex;         /* Enable Flexbox */
-                            flex-direction: column; /* Stack form elements vertically */
-                            align-items: center;   /* Center form elements horizontally */
-                            max-width: 500px;      /* Set maximum width */
-                            margin: 50px auto;        /* Center the container */
-                            background-color: #EBF5F4;
-                            max-width: 50%;
-                            border-radius: 10px;
-                            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-                            padding: 30px;
-                            box-sizing: border-box; /* Ensure padding doesn't affect width */
-                            margin-bottom : 50px;
-                        }
+/* Reworked Styles for apply.php Form       */
+/* ========================================= */
+
+/* Main Form Container */
+.form-container-job-apply {
+    background-color: #f8f9fa; /* Lighter background */
+    max-width: 700px;      /* Wider for better layout */
+    margin: 40px auto;     /* Add top/bottom margin */
+    padding: 30px 40px;    /* Increase padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border: 1px solid #dee2e6; /* Subtle border */
+}
+
+/* Form Section/Label Wrapper */
+.form-container-job-apply .form-label {
+    margin-bottom: 20px; /* Increased spacing between sections */
+    width: 100%; /* Ensure full width */
+}
+
+/* Style for Labels within .form-label */
+.form-container-job-apply .form-label > label { /* Direct child label */
+    display: block; /* Ensure label takes its own line */
+    font-weight: bold;
+    margin-bottom: 8px; /* Space below label */
+    color: #495057; /* Darker label color */
+    font-size: 0.95rem;
+}
+
+/* Styling for Text Inputs, Select, Textarea */
+.form-container-job-apply input[type="text"],
+.form-container-job-apply input[type="date"],
+.form-container-job-apply input[type="email"],
+.form-container-job-apply select,
+.form-container-job-apply textarea {
+    width: 100%; /* Full width */
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding/border in width */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-container-job-apply input[type="text"]:focus,
+.form-container-job-apply input[type="date"]:focus,
+.form-container-job-apply input[type="email"]:focus,
+.form-container-job-apply select:focus,
+.form-container-job-apply textarea:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Specific placeholder styling */
+.form-container-job-apply ::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+/* Gender Selection Styling */
+.form-container-job-apply .gender-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between main label and radio group */
+    flex-wrap: wrap; /* Allow wrap on small screens */
+}
+
+.form-container-job-apply .gender-container > label { /* The main 'Gender:' label */
+    margin-bottom: 0; /* Remove bottom margin if it's a flex item */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.form-container-job-apply .radio-group {
+    display: flex;
+    gap: 20px; /* Increased space between radio options */
+    flex-wrap: wrap;
+}
+
+.form-container-job-apply .radio-group div {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between radio button and its label */
+}
+
+.form-container-job-apply input[type="radio"] {
+    width: auto; /* Override full width */
+    margin-right: 5px;
+    accent-color: #309689; /* Theme color for radio */
+}
+.form-container-job-apply .radio-group label { /* Label next to radio */
+     margin-bottom: 0; /* Remove default margin */
+     font-weight: normal; /* Normal weight for options */
+     font-size: 1rem;
+     color: #333;
+}
+
+
+/* Skills Checkbox Styling */
+.form-container-job-apply .skill-tickbox-container {
+    display: flex;
+    align-items: flex-start; /* Align with top */
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.form-container-job-apply .skill-tickbox-container > label { /* The main 'Skills:' label */
+     margin-bottom: 0;
+     padding-top: 2px; /* Align with checkboxes better */
+     flex-shrink: 0;
+}
+
+.form-container-job-apply .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px; /* Row and column gap */
+}
+
+.form-container-job-apply .checkbox-group div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-container-job-apply input[type="checkbox"] {
+    width: auto; /* Override full width */
+    accent-color: #309689; /* Theme color */
+    width: 16px; /* Explicit size */
+    height: 16px;
+}
+.form-container-job-apply .checkbox-group label { /* Label next to checkbox */
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Other Skills Textarea Row */
+.form-container-job-apply .form-row {
+    /* Assuming this class wraps label + textarea for 'Other Skills' */
+    /* No specific styles needed if using general .form-label structure */
+}
+
+.form-container-job-apply textarea {
+    min-height: 80px; /* Give textarea some initial height */
+    resize: vertical; /* Allow vertical resize only */
+}
+
+/* Error Message Styling */
+.form-container-job-apply .form-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 0.875rem; /* Smaller font size for errors */
+    width: 100%; /* Ensure it takes full width */
+    box-sizing: border-box;
+}
+
+/* Form Buttons */
+.form-container-job-apply .form-buttons {
+    display: flex;
+    justify-content: center; /* Center buttons */
+    gap: 15px; /* Space between buttons */
+    margin-top: 30px; /* Space above buttons */
+    padding-top: 20px; /* Space within the button area */
+    border-top: 1px solid #e0e0e0; /* Separator line */
+}
+
+.form-container-job-apply .form-buttons input[type="submit"],
+.form-container-job-apply .form-buttons input[type="reset"] {
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    min-width: 120px; /* Minimum button width */
+}
+
+.form-container-job-apply .form-buttons input[type="submit"] {
+    background-color: #28a745; /* Green for Apply/Submit */
+    color: white;
+}
+
+.form-container-job-apply .form-buttons input[type="submit"]:hover {
+    background-color: #218838; /* Darker green */
+    transform: translateY(-2px);
+}
+
+.form-container-job-apply .form-buttons input[type="reset"] {
+    background-color: #6c757d; /* Grey for Reset */
+    color: white;
+}
+
+.form-container-job-apply .form-buttons input[type="reset"]:hover {
+    background-color: #5a6268; /* Darker grey */
+    transform: translateY(-2px);
+}                  
                         
-                        .form-label{
-                            font-size: 20px;
-                            margin-bottom: 10px;
-                            align-items: center;
-                        }
-                        .form-label label{
-                            font-size: 20px;
-                            margin-bottom: 10px;
-                            align-items: center;
-                            align-content: center;
-                            align-items: center;
-                        }
-                        .form-label input{
-                            font-size: 20px;
-                            margin-bottom: 10px;
-                            align-items: center;
-                            align-content: center;
-                            display: inline;   
-                        }    
-                        .form-label textarea{
-                            font-size: 20px;
-                            margin-bottom: 10px;
-                            align-items: center;
-                            align-content: center
-                        }
-                        
-                        .form-label label{
-                            font-size: 20px;
-                            margin-bottom: 10px;
-                            align-items: center;
-                            align-content: center
-                        }
-                        
-                        .form-error {
-                            color: #D8000C; /* A standard error red color */
-                            background-color: #FFD2D2; /* A light red background */
-                            border: 1px solid #D8000C;
-                            padding: 5px 10px;
-                            margin-top: 5px; /* Add some space above the error */
-                            margin-bottom: 10px; /* Add some space below the error */
-                            font-size: 0.9em;
-                            border-radius: 4px;
-                            display: block; /* Make it take its own line */
-                          }
-                        
-                        .gender-container {
-                            display: flex;
-                            align-items: center; /* Vertically align label and radio buttons */
-                            gap: 1rem; /* Space between label and radio buttons */
-                            margin-top: 0px;
-                            margin-bottom: 0px;
-                          }
-                          
-                          .gender-container label {
-                            flex: 0 0 auto; /* Prevent label from stretching */
-                            white-space: nowrap; /* Keep label text on one line */
-                          }
-                          
-                          .radio-group {
-                            display: flex;
-                            gap: 0.5rem; /* Space between radio buttons */
-                            flex-wrap: wrap; /* Allow wrapping on small screens */
-                          }
-                          
-                          .radio-group div {
-                            display: flex;
-                            align-items: center;
-                            gap: 0.5rem; /* Space between radio and label */
-                          }
-                        
-                          /*Skills*/
-                          .skill-tickbox-container {
-                            display: flex; /* Enable horizontal layout */
-                            align-items: center; /* Vertically align items */
-                            gap: 1rem; /* Space between label and checkboxes */
-                          }
-                          
-                          .checkbox-group {
-                            display: flex; /* Enable horizontal layout for checkboxes */
-                            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-                            gap: 0.5rem; /* Space between checkboxes */
-                          }
-                          
-                          .checkbox-group div {
-                            display: flex; /* Align checkbox and label */
-                            align-items: center; /* Vertically align checkbox and label */
-                            }  
                             textarea {
                                 text-align: left; /* Align text to the left */
                                 vertical-align: top; /* Align text to the top */
                                 padding: 0.5rem; /* Optional: Add padding if needed */
                                 text-indent: 0; /* Optional: Remove text indent */
-                              }
-                        
-                              .form-buttons input {
-                                padding: 12px 24px; /* Increase button size */
-                                font-size: 1rem;    /* Adjust font size */
-                                border-radius: 8px; /* Optional: Adjust border radius */
-                                background-color: #309689; /* Green background for Apply */
-                                color: white;
-                                border: none;
-                                cursor: pointer;
-                                transition: background-color 0.3s ease;
-                                margin: 0 5px; /* Add spacing between buttons */
-                              }
-                              
-                              .form-buttons input:hover {
-                                background-color: #309689; /* Darker green on hover */
-                              }
+                              }                    
                             
                         .form-row {
                           display: flex;
@@ -710,7 +862,18 @@
                                                /* END Job Page*/   
                         
                         
-                                    /* START Enhancement Page */  
+                                    /* START (PHP) Enhancement Page */  
+                        /* START General container */
+                        .container {
+                            width: 80%; /* Or your preferred width */
+                            max-width: 1200px; /* Adjust as needed */
+                            margin: 20px auto; /* Centers the container */
+                            padding: 15px;
+                            box-sizing: border-box;
+                        }
+                        /* END General container */
+
+                        
                         /* START Enhancement Cards */
                         .enhancement-cards {
                             display: grid;
@@ -824,4 +987,231 @@
                                     /* END of Successfully Submitted Page */
                         
                         
-                                    
+/* START index.php */
+/* ========================================= */
+/* Improved Styles for index.php            */
+/* ========================================= */
+
+/* --- Search Banner Improvements --- */
+
+.search-container {
+    padding: 60px 20px; /* Increased vertical padding */
+    min-height: 450px; /* Adjusted height if needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center;
+    text-align: center; /* Center text */
+    position: relative; /* Needed for potential overlay */
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+/* Add overlay for better text contrast */
+
+.search-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); // Dark overlay
+    z-index: 1;
+}
+
+
+/* Ensure text/search appears above overlay */
+.search-container > *, .search-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+
+.search-container h1 {
+    font-size: 2.8rem; /* Larger heading */
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Subtle text shadow */
+}
+
+.search-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px; /* Limit width of paragraph */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.search-wrapper {
+    max-width: 650px; /* Slightly wider */
+    width: 90%; /* Responsive width */
+}
+
+.search-input {
+    padding: 12px 18px; /* More padding */
+    font-size: 1rem;
+}
+
+.search-button {
+    padding: 12px 25px; /* More padding */
+    font-size: 1rem;
+    background-color: #309689; /* Consistent theme color? */
+}
+.search-button:hover {
+     background-color: #237A6B; /* Slightly darker hover */
+}
+
+
+/* --- Content Section Improvements --- */
+
+section.company-section,
+section.company-section-2 {
+    padding: 60px 5%; /* Add vertical and horizontal padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5%; /* Use percentage gap for responsiveness */
+    margin-top: 0; /* Remove top margin if padding is added */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+section.company-section-2 {
+    background-color: #575a7a; /* Existing color, ensure good contrast */
+    color: white; /* Ensure text is white */
+}
+
+.img-container,
+.img-container2 {
+    flex-basis: 45%; /* Assign basis width */
+    min-width: 300px; /* Prevent getting too small */
+    text-align: center; /* Center image if container is wider */
+}
+
+.img-container img,
+.img-container2 img {
+    max-width: 100%; /* Ensure image scales down */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.text-container,
+.text-container2 {
+    flex-basis: 45%; /* Assign basis width */
+    min-width: 300px;
+    max-width: 600px; /* Limit text width */
+}
+
+.text-container h2,
+.text-container2 h2 {
+    font-size: 2.2rem; /* Adjust size */
+    font-weight: bold;
+    margin-bottom: 25px;
+    line-height: 1.3;
+}
+
+.text-container p,
+.text-container2 p {
+    font-size: 1.1rem; /* Adjust size */
+    line-height: 1.7; /* Improve readability */
+    margin-bottom: 30px;
+}
+
+/* Button and Link Styling in Sections */
+.text-container button#searchjob-button, /* Target specific button */
+.text-container2 button#searchjob-button { /* Target specific button */
+    /* Reusing general button style if possible, or define here */
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #237A6B; /* Match search button? */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 15px; /* Space before Learn More */
+}
+.text-container button#searchjob-button a, /* Link inside button */
+.text-container2 button#searchjob-button a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.text-container button#searchjob-button:hover,
+.text-container2 button#searchjob-button:hover {
+    background-color: #1a5d52; /* Darker hover */
+}
+
+.text-container a.learn-more { /* Specific styling for Learn More */
+    color: #309689; /* Theme color */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 12px 0; /* Add padding for easier clicking */
+    transition: color 0.3s ease;
+}
+
+.text-container a.learn-more:hover {
+    color: #237A6B; /* Darker hover */
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments for Sections */
+@media (max-width: 768px) {
+    section.company-section,
+    section.company-section-2 {
+        gap: 30px; /* Reduce gap on smaller screens */
+        padding: 40px 5%;
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    /* Ensure text comes after image in first section when stacked */
+    section.company-section {
+        flex-direction: column;
+    }
+     /* Reverse stacking order if needed for section 2 */
+    section.company-section-2 {
+       flex-direction: column-reverse;
+    }
+
+
+    .img-container,
+    .img-container2,
+    .text-container,
+    .text-container2 {
+        flex-basis: 100%; /* Full width when stacked */
+        max-width: 90%; /* Ensure some margin */
+        text-align: center; /* Center text when stacked */
+    }
+     .text-container,
+    .text-container2 {
+        margin-left: 0; /* Reset margin */
+    }
+
+     .text-container h2,
+    .text-container2 h2 {
+        font-size: 1.8rem;
+    }
+    .text-container p,
+    .text-container2 p {
+        font-size: 1rem;
+    }
+
+    .text-container button#searchjob-button,
+    .text-container2 button#searchjob-button,
+    .text-container a.learn-more {
+        display: block; /* Make buttons/links block */
+        margin: 15px auto; /* Center and space them */
+        text-align: center;
+        width: fit-content; /* Size to content */
+    }
+     .text-container button#searchjob-button {
+         margin-right: auto; /* Reset margin used for inline */
+     }
+
+}
+
+/* END index.php */

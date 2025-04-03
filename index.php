@@ -50,10 +50,10 @@
     </div>
   </section>
                 <!---END Description 2-->
-
-                <li><strong>Icons:</strong> RemixIcon library (https://remixicon.com/) for job tags and search icons.</li>
-                <li>Group Demonstration: <a target="_blank" href="https://youtu.be/B8mWPl0qwA0">https://youtu.be/B8mWPl0qwA0</a></li>
-
+    <ul>
+      <li><strong>Icons:</strong> RemixIcon library (https://remixicon.com/) for job tags and search icons.</li>
+      <li>Group Demonstration: <a target="_blank" href="https://youtu.be/B8mWPl0qwA0">https://youtu.be/B8mWPl0qwA0</a></li>
+    </ul>
                 <!--Footer-->         
 <?php
   include "footer.inc";
